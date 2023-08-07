@@ -106,10 +106,11 @@ def run(rank, n_gpus, hps):
   net_d = DDP(net_d, device_ids=[rank])
 
   try:
-    print("load chekpoint")
+    print("loading---------------")
     _, _, _, epoch_str = utils.load_checkpoint(utils.latest_checkpoint_path("/kaggle/input/checkpointdg/G_8000.pth"), net_g, optim_g)
     _, _, _, epoch_str = utils.load_checkpoint(utils.latest_checkpoint_path("/kaggle/input/checkpointdg/D_8000.pth"), net_d, optim_d)
     global_step = (epoch_str - 1) * len(train_loader)
+    print("____________",epoch_str)
   except:
     epoch_str = 1
     global_step = 0
