@@ -112,6 +112,7 @@ def run(rank, n_gpus, hps):
     global_step = (epoch_str - 1) * len(train_loader)
     print("____________",epoch_str)
   except:
+    print("không tìm được checkpoint")
     epoch_str = 1
     global_step = 0
 
