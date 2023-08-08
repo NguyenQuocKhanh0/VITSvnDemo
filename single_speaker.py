@@ -63,4 +63,4 @@ if __name__ == '__main__':
         x_tst_lengths = torch.LongTensor([stn_tst.size(0)]).cuda()
         audio = net_g.infer(x_tst, x_tst_lengths, noise_scale=.667, noise_scale_w=0.8, length_scale=1)[0][0,0].data.cpu().float().numpy()
     ipd.display(ipd.Audio(audio, rate=hps.data.sampling_rate, normalize=False))
-    sf.write('/kaggle/working/test.wav', audio, hps.data.sampling_rate)
+    sf.write('test.wav', audio, hps.data.sampling_rate)
