@@ -213,7 +213,9 @@ def train_and_evaluate(rank, epoch, hps, nets, optims, schedulers, scaler, loade
         
         scalar_dict = {"loss/g/total": loss_gen_all, "loss/d/total": loss_disc_all, "learning_rate": lr, "grad_norm_d": grad_norm_d, "grad_norm_g": grad_norm_g}
         scalar_dict.update({"loss/g/fm": loss_fm, "loss/g/mel": loss_mel, "loss/g/dur": loss_dur, "loss/g/kl": loss_kl})
-        print("loss g:", loss_gen_all.item(), "loss d:", loss_disc_all.item(), "grad_norm_d:", grad_norm_d, "grad_norm_g:", grad_norm_g)
+        print("loss g:", loss_gen_all.item(), "loss d:", loss_disc_all.item())
+        print("loss fm:", loss_fm.item(), "loss_mel:", loss_mel.item(), "loss_dur:", loss_dur.item())
+        print("learning_rate:", lr)
         scalar_dict.update({"loss/g/{}".format(i): v for i, v in enumerate(losses_gen)})
         scalar_dict.update({"loss/d_r/{}".format(i): v for i, v in enumerate(losses_disc_r)})
         scalar_dict.update({"loss/d_g/{}".format(i): v for i, v in enumerate(losses_disc_g)})
