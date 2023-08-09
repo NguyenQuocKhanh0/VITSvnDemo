@@ -1,4 +1,4 @@
-import matplotlib.pyplot as plt
+# import matplotlib.pyplot as plt
 import IPython.display as ipd
 import soundfile as sf
 
@@ -47,7 +47,7 @@ if __name__ == '__main__':
         len(symbols),
         hps.data.filter_length // 2 + 1,
         hps.train.segment_size // hps.data.hop_length,
-        **hps.model).cuda()
+        **hps.model).cpu()
     
     _ = net_g.eval()
 
@@ -59,8 +59,8 @@ if __name__ == '__main__':
     text = args.text
     stn_tst = get_text(text, hps)
     with torch.no_grad():
-        x_tst = stn_tst.cuda().unsqueeze(0)
-        x_tst_lengths = torch.LongTensor([stn_tst.size(0)]).cuda()
+        x_tst = stn_tst.cpu().unsqueeze(0)
+        x_tst_lengths = torch.LongTensor([stn_tst.size(0)]).cpu()
         audio = net_g.infer(x_tst, x_tst_lengths, noise_scale=.667, noise_scale_w=0.8, length_scale=1)[0][0,0].data.cpu().float().numpy()
     ipd.display(ipd.Audio(audio, rate=hps.data.sampling_rate, normalize=False))
     sf.write('test.wav', audio, hps.data.sampling_rate)
