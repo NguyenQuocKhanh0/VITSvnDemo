@@ -1,3 +1,5 @@
+import sys
+# sys.path.append("C:/Users/ADMIN/Desktop/VIT-vn/vits-vn")
 from flask import Flask, request, send_file, send_from_directory
 import soundfile as sf
 import commons

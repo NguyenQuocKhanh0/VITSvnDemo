@@ -39,9 +39,9 @@ def get_text(text, hps):
 def synthesize():
     data = request.json  # Nhận dữ liệu văn bản từ yêu cầu POST
     text = data.get('text', '')  # Lấy văn bản từ dữ liệu
-    config_path = "C:/Users/ADMIN/Desktop/VIT-vn/vits-vn/configs/vietnamese_base.json"
+    config_path = "/mnt/c/Users/ADMIN/Desktop/VIT-vn/vits-vn/configs/vietnamese_base.json"
 
-    path_to_model = "G:/download/G_last.pth"
+    path_to_model = "/mnt/g/download/G_last.pth"
 
     hps = utils.get_hparams_from_file(config_path)
 
