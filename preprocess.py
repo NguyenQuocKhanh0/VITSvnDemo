@@ -22,7 +22,7 @@ if __name__ == '__main__':
       cleaned_text = text._clean_text(original_text, args.text_cleaners)
       filepaths_and_text[i][args.text_index] = cleaned_text
     # Đường dẫn thư mục đích để lưu các tệp mới
-    output_directory = "/content/drive/MyDrive/Vinbigdata/trainsmall"
+    output_directory = "../drive/MyDrive/Vinbigdata/trainsmall"
 
     # Lấy tên tệp gốc
     original_file_name = os.path.basename(filelist)
