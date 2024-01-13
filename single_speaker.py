@@ -49,7 +49,7 @@ if __name__ == '__main__':
         hps.train.segment_size // hps.data.hop_length,
         **hps.model).cpu()
     
-    _ = net_g.eval()
+    = net_g.eval()
 
     path_to_model = args.path_to_model
 
