@@ -55,6 +55,7 @@ if __name__ == '__main__':
 
     net_g, _, _, _ = utils.load_checkpoint(path_to_model, net_g, None)
     net_g.eval()
+    print(net_g)
 
     text = args.text
     stn_tst = get_text(text, hps)
